@@ -8,20 +8,20 @@
 
 下面是对于每一种功能的详细介绍以及教程：
 
-#1. 定点备份与回档：
+1. 定点备份与回档：
 （备份目录在config/quickfunc/backup文件夹内）
 
-  #/qf backup make <slot> <locate> <zipped> —— 立即执行备份操作。
+  /qf backup make <slot> <locate> <zipped> —— 立即执行备份操作。
    <slot>栏目可以为备份后的文件/文件夹名称 不填则以当前时间来命名（例如2020_3_16_13_35.zip）
    <locate>栏目可以指定备份哪一个文件/文件夹，其根路径为服务端根目录，不填为全局备份（备份根目录下所有文件，除该MOD的备份文件夹）
    <zipped>栏目只能填布尔值（true/false），意为是否以.zip格式压缩 不填则默认true
-  #/qf backup repo <slot> <restarted> —— 立即执行回滚操作。
+  /qf backup repo <slot> <restarted> —— 立即执行回滚操作。
    <slot>栏目是/qf backup make <slot>中所写入的值。可以在任意一个执行了上一条指令后备份的文件内进行回滚
    <restarted>栏目只能填布尔值（true/false），意为在回滚完成后是否执行重启操作（如果填写false则回滚需在手动重启后方可生效）不填默认true
-  #/qf backup confirm —— 确认执行备份/回滚操作。
+  /qf backup confirm —— 确认执行备份/回滚操作。
   /qf backup list <page> —— 列出当前备份目录所有的备份节点。
    <page>栏目是当list内容过多时翻页的，页数取决于备份目录中备份节点的数量
-  #/qf backup auto <time> <locate> <zipped> —— 启动定时备份功能。
+  /qf backup auto <time> <locate> <zipped> —— 启动定时备份功能。
    <time>栏目是规定间隔多长时间备份一次，单位为游戏刻（GameTick, gt），其余参数与/qb backup make相同（不包含<slot>. 自动备份下的文件/文件夹将强制以时间进行命名，例如2020_3_16_13_35.zip）
   #/qf backup stopauto —— 停止自动备份。
   #/qf backup delete <slot> —— 删除备份文件夹内的某个备份。
