@@ -11,52 +11,52 @@
 # 1. 定点备份与回档：
 （备份目录在config/quickfunc/backup文件夹内）
 
-  /qf backup make <slot> <locate> <zipped> —— 立即执行备份操作。
-=> <slot>栏目可以为备份后的文件/文件夹名称 不填则以当前时间来命名（例如2020_3_16_13_35.zip）
-=> <locate>栏目可以指定备份哪一个文件/文件夹，其根路径为服务端根目录，不填为全局备份（备份根目录下所有文件，除该MOD的备份文件夹）
-=> <zipped>栏目只能填布尔值（true/false），意为是否以.zip格式压缩 不填则默认true
-  /qf backup repo <slot> <restarted> —— 立即执行回滚操作。
-=> <slot>栏目是/qf backup make <slot>中所写入的值。可以在任意一个执行了上一条指令后备份的文件内进行回滚
-=> <restarted>栏目只能填布尔值（true/false），意为在回滚完成后是否执行重启操作（如果填写false则回滚需在手动重启后方可生效）不填默认true
-  /qf backup confirm —— 确认执行备份/回滚操作。
-  /qf backup list <page> —— 列出当前备份目录所有的备份节点。
-=> <page>栏目是当list内容过多时翻页的，页数取决于备份目录中备份节点的数量
-  /qf backup auto <time> <locate> <zipped> —— 启动定时备份功能。
-=> <time>栏目是规定间隔多长时间备份一次，单位为游戏刻（GameTick, gt），其余参数与/qb backup make相同（不包含<slot>. 自动备份下的文件/文件夹将强制以时间进行命名，例如2020_3_16_13_35.zip）
-  /qf backup stopauto —— 停止自动备份。
-  /qf backup delete <slot> —— 删除备份文件夹内的某个备份。
-=> <slot>栏目为备份后的文件/文件夹名称
-  /qf backup diskprotect <bool_value> <value>—— 是否开启硬盘保护功能。 
-=> <bool_value> 只能为布尔值（true/false），意为是否开启该功能，当值位于false时，后面的所有参数将无效
-=> <value>栏目只能为单位字节（例如5GB、5KB、10MB等），意为当硬盘空间小于此值时触发保护功能
-=> 硬盘保护意为防止备份项目过多导致磁盘爆满。当磁盘空间小于<value>规定的大小时，自动备份将停止，手动备份会提示“是否删除最早的备份以此来空出该备份所需的磁盘空间”并会让执行指令的终端进行/qf backup confirm确认操作
+  /qf backup make <slot> <locate> <zipped> —— 立即执行备份操作。\n
+=> <slot>栏目可以为备份后的文件/文件夹名称 不填则以当前时间来命名（例如2020_3_16_13_35.zip）\n
+=> <locate>栏目可以指定备份哪一个文件/文件夹，其根路径为服务端根目录，不填为全局备份（备份根目录下所有文件，除该MOD的备份文件夹）\n
+=> <zipped>栏目只能填布尔值（true/false），意为是否以.zip格式压缩 不填则默认true\n
+  /qf backup repo <slot> <restarted> —— 立即执行回滚操作。\n
+=> <slot>栏目是/qf backup make <slot>中所写入的值。可以在任意一个执行了上一条指令后备份的文件内进行回滚\n
+=> <restarted>栏目只能填布尔值（true/false），意为在回滚完成后是否执行重启操作（如果填写false则回滚需在手动重启后方可生效）不填默认true\n
+  /qf backup confirm —— 确认执行备份/回滚操作。\n
+  /qf backup list <page> —— 列出当前备份目录所有的备份节点。\n
+=> <page>栏目是当list内容过多时翻页的，页数取决于备份目录中备份节点的数量\n
+  /qf backup auto <time> <locate> <zipped> —— 启动定时备份功能。\n
+=> <time>栏目是规定间隔多长时间备份一次，单位为游戏刻（GameTick, gt），其余参数与/qb backup make相同（不包含<slot>. 自动备份下的文件/文件夹将强制以时间进行命名，例如2020_3_16_13_35.zip）\n
+  /qf backup stopauto —— 停止自动备份。\n
+  /qf backup delete <slot> —— 删除备份文件夹内的某个备份。\n
+=> <slot>栏目为备份后的文件/文件夹名称\n
+  /qf backup diskprotect <bool_value> <value>—— 是否开启硬盘保护功能。 \n
+=> <bool_value> 只能为布尔值（true/false），意为是否开启该功能，当值位于false时，后面的所有参数将无效\n
+=> <value>栏目只能为单位字节（例如5GB、5KB、10MB等），意为当硬盘空间小于此值时触发保护功能\n
+=> 硬盘保护意为防止备份项目过多导致磁盘爆满。当磁盘空间小于<value>规定的大小时，自动备份将停止，手动备份会提示“是否删除最早的备份以此来空出该备份所需的磁盘空间”并会让执行指令的终端进行/qf backup confirm确认操作\n
   
 # 2. 请求传送、接受传送与拒绝传送：
  
-  /qf tpafunc <bool_value> —— 是否开启请求传送功能
-=> <bool_value> 只能为布尔值（true/false），当值位于false时，以下所有指令全部无效
-  /tpa <player> —— 向该玩家发送一个传送请求。
-=> <player>栏目只能为玩家实体。控制台、命令方块发出的该指令无效
-  /tpaccept —— 接受传送请求。
-  /tpadeny —— 拒绝传送请求。
+  /qf tpafunc <bool_value> —— 是否开启请求传送功能\n
+=> <bool_value> 只能为布尔值（true/false），当值位于false时，以下所有指令全部无效\n
+  /tpa <player> —— 向该玩家发送一个传送请求。\n
+=> <player>栏目只能为玩家实体。控制台、命令方块发出的该指令无效\n
+  /tpaccept —— 接受传送请求。\n
+  /tpadeny —— 拒绝传送请求。\n
 
 # 3. 格式化聊天栏与@<player>：
-  （该功能的详细配置在config文件内可以找到）
+  （该功能的详细配置在config文件内可以找到）\n
   
-  /qf chatfunc <bool_value> —— 是否开启格式化聊天
-=> <bool_value> 只能为布尔值（true/false），当值位于false时，客户端会遵循Minecraft的聊天格式而不是QuickFunctions的格式
-  /qf mute <bool_value> —— 是否开启全局禁言
-=> <bool_value> 只能为布尔值（true/false），当值位于true时，玩家发送除指令外所有的内容将全部屏蔽（在客户端表现为发送文字后聊天栏无任何反应），但玩家依然可以使用/say、/tell(raw)、/title等指令来说话（如果他有这些指令使用权限的话）
-  <chat>@<player> <chat> —— 在聊天栏内@一位玩家
+  /qf chatfunc <bool_value> —— 是否开启格式化聊天\n
+=> <bool_value> 只能为布尔值（true/false），当值位于false时，客户端会遵循Minecraft的聊天格式而不是QuickFunctions的格式\n
+  /qf mute <bool_value> —— 是否开启全局禁言\n
+=> <bool_value> 只能为布尔值（true/false），当值位于true时，玩家发送除指令外所有的内容将全部屏蔽（在客户端表现为发送文字后聊天栏无任何反应），但玩家依然可以使用/say、/tell(raw)、/title等指令来说话（如果他有这些指令使用权限的话）\n
+  <chat>@<player> <chat> —— 在聊天栏内@一位玩家\n
 => <chat>栏目是玩家要发送的上下文（包含空格、无字符。在@<player>结束后必须加一个空格才能接着剩下的语句。否则MOD将无法识别@内容）
-=> <player>栏目只能为玩家实体。
-=> 当MOD成功识别后，被@的玩家会有一个“note_pling”的提示音，并在聊天栏内会看到@部分呈翠绿色的高亮（&a格式）
+=> <player>栏目只能为玩家实体。\n
+=> 当MOD成功识别后，被@的玩家会有一个“note_pling”的提示音，并在聊天栏内会看到@部分呈翠绿色的高亮（&a格式）\n
   
 # 4. placeholderAPI支持（暂未更新）：
-  （该功能暂且未在beta版本中加入）
+  （该功能暂且未在beta版本中加入）\n
   
 # 5. 快速发送bossbar、actionbar、subtitle等位置的文字：
-  /qf bossbarmsg <msg> <time> <barcolor> —— 发送一个BOSS血条消息
+  /qf bossbarmsg <msg> <time> <barcolor> —— 发送一个BOSS血条消息\n
 => <msg>栏目是想要发送的文字，支持&转义符、JSON格式（当系统检测到JSON格式中有time规定的值时，<time>栏目将失效）。
 => <time>栏目为BOSS血条持续的时间，单位为游戏刻（GameTick, gt）
 => <barcolor>栏目为血条颜色，只能为JSON格式
