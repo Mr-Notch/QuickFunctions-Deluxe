@@ -8,7 +8,7 @@
 
 下面是对于每一种功能的详细介绍以及教程：
 
-1. 定点备份与回档：
+# 1. 定点备份与回档：
 （备份目录在config/quickfunc/backup文件夹内）
 
   /qf backup make <slot> <locate> <zipped> —— 立即执行备份操作。
@@ -31,7 +31,7 @@
   => <value>栏目只能为单位字节（例如5GB、5KB、10MB等），意为当硬盘空间小于此值时触发保护功能
   => 硬盘保护意为防止备份项目过多导致磁盘爆满。当磁盘空间小于<value>规定的大小时，自动备份将停止，手动备份会提示“是否删除最早的备份以此来空出该备份所需的磁盘空间”并会让执行指令的终端进行/qf backup confirm确认操作
   
-2. 请求传送、接受传送与拒绝传送：
+# 2. 请求传送、接受传送与拒绝传送：
  
   /qf tpafunc <bool_value> —— 是否开启请求传送功能
   => <bool_value> 只能为布尔值（true/false），当值位于false时，以下所有指令全部无效
@@ -40,7 +40,7 @@
   /tpaccept —— 接受传送请求。
   /tpadeny —— 拒绝传送请求。
 
-3. 格式化聊天栏与@<player>：
+# 3. 格式化聊天栏与@<player>：
   （该功能的详细配置在config文件内可以找到）
   
   /qf chatfunc <bool_value> —— 是否开启格式化聊天
@@ -52,10 +52,10 @@
   => <player>栏目只能为玩家实体。
   => 当MOD成功识别后，被@的玩家会有一个“note_pling”的提示音，并在聊天栏内会看到@部分呈翠绿色的高亮（&a格式）
   
-4. placeholderAPI支持（暂未更新）：
+# 4. placeholderAPI支持（暂未更新）：
   （该功能暂且未在beta版本中加入）
   
-5. 快速发送bossbar、actionbar、subtitle等位置的文字：
+# 5. 快速发送bossbar、actionbar、subtitle等位置的文字：
   /qf bossbarmsg <msg> <time> <barcolor> —— 发送一个BOSS血条消息
   => <msg>栏目是想要发送的文字，支持&转义符、JSON格式（当系统检测到JSON格式中有time规定的值时，<time>栏目将失效）。
   => <time>栏目为BOSS血条持续的时间，单位为游戏刻（GameTick, gt）
@@ -65,7 +65,7 @@
   /qf subtitlemsg <msg>
   => <msg>栏目是想要发送的文字，支持&转义符、JSON格式。若不规定渐变时间、持续时间，系统默认会以“10 20 10”的格式放送。
   
-6. 快速寻找史莱姆区块、生物群系：
+# 6. 快速寻找史莱姆区块、生物群系：
   /qf slimefinder <radius> —— 以玩家为中心寻找史莱姆区块
   => <radius>栏目意为半径，规定一个圆，圆心为玩家中心。半径为单位格（一个方块长度=1）
   /qf biomefinder <biome> <radius> —— 以玩家为中心寻找规定的生物群系
@@ -73,14 +73,14 @@
   => <radius>栏目意为半径，规定一个圆，圆心为玩家中心。半径为单位格（一个方块长度=1）
   => 若该范围内存在两个或两个以上生物群系，MOD将自动选择一个离玩家最近的生物群系进行输出坐标
   
-7. 模糊指令：
+# 7. 模糊指令：
   （该部分请参考config文件fuzzycommands部分，在这里不做过多赘述）
 
-8. 服务器指标查询：
+# 8. 服务器指标查询：
   /qf healthreport —— 发送一个服务器健康报告。
   => 详细内容请参考config中的healthreport部分
   
-9. 在游戏内控制服务器后台、查询服务端根目录文件（暂未更新）：
+# 9. 在游戏内控制服务器后台、查询服务端根目录文件（暂未更新）：
   （该功能暂且未在beta版本中加入）
   
   /qf panelmode <player> —— 将某个玩家切换至控制台模式
@@ -108,7 +108,7 @@
   => 删除内容属于敏感指令，需要使用/qf file confirm确认操作
   /qf file confirm —— 确认执行
   
-10. LOG日志与监测系统：
+# 10. LOG日志与监测系统：
   （日志文件在config/quickfunc/logs内可以找到，命名格式为时间_格式，例如2020_3_16_15_09_all.txt）
 
   /qf log <bool_value> —— 是否开启日志记录模式
@@ -121,7 +121,7 @@
   => server模式：与根目录的logs记录方法相同，遵循Minecraft的日志写法
   => player模式：仅记录玩家的聊天、指令，与方块的交互以及登入登出、IP地址信息
   
-11. 自动重启：
+# 11. 自动重启：
   /qf autorestart <time> <msgswitch> —— 规定自动重启间隔
   => <time>栏目是规定间隔多长时间重启一次，单位为游戏刻（GameTick, gt）
   => <msgswitch> 只能为布尔值（true/false），意为是否开启重启倒计时警告系统
