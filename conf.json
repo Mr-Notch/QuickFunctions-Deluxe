@@ -25,4 +25,104 @@ bakfunc_conf:
   auto_bak_time = 0
   # 是否将自动备份的内容打包成zip
   auto_bak_zipped = false
+  # 是否开启硬盘保护功能
+  disk_safer_enable = true
+  # 硬盘保护阈值大小
+  disk_safer_size = 15GB
+
+# 请求传送功能的参数
+tpafunc_conf:
+  # 是否开启请求传送功能
+  enable = true
+  # 发起传送到接收传送的时间（单位是游戏刻，gt，写0则代表无限追诉期）
+  tpaccept_time = 0
+  # 传送时等待的时间（单位是游戏刻，gt，写0则代表对方同意后立即传送）
+  tpwait_time = 0
+  # 传送后再次使用/tpa指令的冷却时间（单位是游戏刻，gt，写0则代表没有冷却时间）
+  tpafter_time = 0
+
+# 格式化聊天与@功能的参数
+chatfunc_conf:
+  # 是否开启格式化聊天
+  enable = true
+  # 是否开启@功能
+  at_enable = true
+  # 当玩家@另一位玩家时需要播放的音效
+  at_voice = 'note_pling'
+  # 是否开启全局禁言
+  chat_mute = true
+  # 格式化聊天的格式（{player_name}代表玩家名；{player_uuid}代表玩家UUID；{message}代表发出的信息）
+  format = '§f[§aChat§f] §b{player_name} §f>>> §r{message}'
   
+# placeholderAPI选项
+papifunc_conf:
+  # 由于当前处于开发阶段，请勿碰触此布尔开关!
+  developing = true
+
+# 快速发送bossbar信息、subtitle信息、唱片栏信息的参数
+fastmsg_conf:
+  # 是否开启快速消息功能
+  enable = true
+  # 是否开启快速消息强制使用JSON格式
+  json_format = false
+  
+# 快速寻找区块与生物群系的功能的参数
+quickfindchunks_conf:
+  # 是否开启该功能
+  enable = true
+  # 是否开启快速寻找史莱姆区块的功能
+  silmefinder_enable = true
+  # 是否开启快速寻找生物群系的功能
+  biomefinder_enable = true
+
+# 模糊指令功能的参数
+fuzzycommands_conf:
+  # 是否开启该功能
+  enable = true
+  # 模糊指令列表（只是范例，需要以YMAL、并以如下格式填写）
+  fuzzycommands_list:
+  - /gamemode = /gm
+  
+# 服务器性能跑分功能
+healthreport_conf:
+  # 是否开启该功能
+  enable = true
+  # 是否记录服务器TPS
+  locktps = true
+  # 是否记录服务器MSPT
+  lockmspt = true
+  # 是否记录当前在线人数
+  lock_playerlist = true
+  # 是否进行服务器整体效率的运算
+  com_serverspeed  true
+  # 是否记录多范围（从1M-15M）
+  multi_com = true
+  # 是否将报告输出到logs里
+  log_output = true
+
+# LOG与检测系统
+logfunc_conf:
+  # 是否开启该功能
+  enable = true
+  # LOG模式（详见README.MD）
+  log_mode = all
+ 
+# 自动重启功能
+auto_restart_conf:
+  # 是否开启该功能
+  enable = true
+  # 自动重启时常间隔（单位是游戏刻，gt，写0则代表开启即重启）
+  restart_time = 10000
+  
+# Python脚本的运行
+pyfile_conf:
+  # 是否开启该功能
+  enable = true
+  # pyfile的位置（相对位置，从服务端根目录开始）
+  pyfile_locate = 'xxx'
+  # Python的位置（绝对位置，从计算机硬盘根目录开始）
+  python_locate = 'xxx'
+  # Python版本（通常情况下会自动规定，如果未自动规定并报错的话请修改这里
+  python_version = '3.6'
+
+
