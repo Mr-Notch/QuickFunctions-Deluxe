@@ -1,5 +1,5 @@
 # QuickFunctions
-一个基于Forge的多功能基础系统MOD —— A useful, powerful mod by Forge
+# 一个基于Forge的多功能基础系统MOD —— A useful, powerful mod by Forge
 
 搭配HGRCarpet使用更佳
 这是一个基于Forge的多功能基础系统MOD。集成定点备份、请求传送、格式化聊天栏、placeholderAPI变量、@以及更多实用的指令与功能
