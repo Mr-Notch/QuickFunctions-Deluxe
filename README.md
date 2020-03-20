@@ -128,6 +128,10 @@
 => 倒计时警告文字与计时器可以在config文件autorestart部分找到 <br>
   /qf stopautorestart —— 停止自动重启 <br>
   
+# 12. Python脚本的运行：
+  /qf pyfile run <locate> <br>
+=> <locate>栏目是python文件的位置，请填写局部路径（从服务端根目录开始） <br>
+  
 ...更多功能 敬请期待... <br>
 与HGRCarpet搭配更佳 <br>
 目前仅开发1.13.2Forge版本，预计未来会开发1.14+的Fabric版本。 <br>
