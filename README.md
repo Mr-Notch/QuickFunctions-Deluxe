@@ -39,7 +39,8 @@
 => <player>栏目只能为玩家实体。控制台、命令方块发出的该指令无效 <br>
   /tpaccept —— 接受传送请求。<br>
   /tpadeny —— 拒绝传送请求。<br>
-
+  /tpahere <player> —— 请求将对方玩家传送到此 <br>
+  
 # 3. 格式化聊天栏与@<player>：
   （该功能的详细配置在config文件内可以找到）<br>
   
