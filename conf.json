@@ -1,0 +1,28 @@
+# 这里是QuickFunctions的config。
+# 你可以在这里更改、开关所有的功能
+# 当然，每个功能还可以设定权限设置。
+
+# 是否开启QuickFunctions（这是全局性的，不必要的情况下请不要碰这个开关）
+qf_enable = true
+
+# 是否开启更新检测（国内CDN源，服务器不是在海外的最好开启以获得最新的构建）
+update_enable = true
+
+# 宿主机系统（第一次配置会自动生成，如果是老服务器从Windows迁移到Linux，或从Linux迁移到Windows，那么请更改此处）
+os = 'Windows'
+
+# 下面是备份功能的参数，请根据自己的需要进行调整
+bakfunc_conf:
+  # 是否开启备份功能（建议开启）
+  enable = true
+  # 这里是备份文件夹的绝对路径，请从硬盘盘符开始填写。第一次启动会自动指定在服务端根目录下的config/quickfunc/backup文件夹
+  locate = 'xxx'
+  # 这是备份模式（手动选定的路径则该选项无效），目前有fast、safe两种选项。fast只会备份存档本身，而不会备份其他东西，safe则会备份服务端所有文件（除备份本身文件夹），默认是safe
+  mode = 'safe'
+  # 是否启用自动备份（根据自己需要开关）
+  auto_bak_enable = false
+  # 自动备份时间间隔（单位是游戏刻，gt，填写0则视为不启用，并且上一条布尔值会自动改为false）
+  auto_bak_time = 0
+  # 是否将自动备份的内容打包成zip
+  auto_bak_zipped = false
+  
