@@ -9,6 +9,7 @@ QuickFunctions Deluxe 不再依赖于MCDR，但能够兼容90%的MCDR插件或MC
 
 非常感谢Fallen的MCDReforged与HGRCommunity的QuickFunctions
 > Fallen-Breath MCDR直达站：[点击跳转](https://github.com/Fallen-Breath/MCDReforged "点击跳转")
+
 > HGR-Community QuickFunctions直达站：[点击跳转](https://gitee.com/Mr_Notch/QuickFunctions "点击跳转")
 
 
