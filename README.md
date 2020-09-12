@@ -1,139 +1,82 @@
-# QuickFunctions
-# 一个基于Forge的多功能基础系统MOD —— A useful, powerful mod by Forge
+## QuickFunctions Deluxe
+> **什么叫TM的惊喜？一个不臃肿、功能多、扩展性高、不干涉原版性质的扩展型Mod**
 
-搭配HGRCarpet使用更佳
-这是一个基于Forge的多功能基础系统MOD。集成定点备份、请求传送、格式化聊天栏、placeholderAPI变量、@以及更多实用的指令与功能
+适用于：各种生电服、FabricMod服、创造服（镜像服）等
 
-该MOD的配置文件在config/quickfunc/conf.json内，配置文件内容请等待第一个Beta版本。
+QuickFunctions Deluxe 不再依赖于MCDR，但能够兼容90%的MCDR插件或MCD插件
 
-下面是对于每一种功能的详细介绍以及教程：
+**这是一个称得上“完美”的原版服扩展解决方案**
 
-# 1. 定点备份与回档：
-（备份目录在config/quickfunc/backup文件夹内）
+非常感谢Fallen的MCDReforged与HGRCommunity的QuickFunctions
+> Fallen-Breath MCDR直达站：[点击跳转](https://github.com/Fallen-Breath/MCDReforged "点击跳转")
+HGR-Community QuickFunctions直达站：[点击跳转](https://gitee.com/Mr_Notch/QuickFunctions "点击跳转")
 
-  /qf backup make <slot> <locate> <zipped> —— 立即执行备份操作。<br>
-=> <slot>栏目可以为备份后的文件/文件夹名称 不填则以当前时间来命名（例如2020_3_16_13_35.zip）<br>
-=> <locate>栏目可以指定备份哪一个文件/文件夹，其根路径为服务端根目录，不填为全局备份（备份根目录下所有文件，除该MOD的备份文件夹）<br>
-=> <zipped>栏目只能填布尔值（true/false），意为是否以.zip格式压缩 不填则默认true <br>
-  /qf backup repo <slot> <restarted> —— 立即执行回滚操作。<br>
-=> <slot>栏目是/qf backup make <slot>中所写入的值。可以在任意一个执行了上一条指令后备份的文件内进行回滚 <br>
-=> <restarted>栏目只能填布尔值（true/false），意为在回滚完成后是否执行重启操作（如果填写false则回滚需在手动重启后方可生效）不填默认true <br>
-  /qf backup confirm —— 确认执行备份/回滚操作。<br>
-  /qf backup list <page> —— 列出当前备份目录所有的备份节点。<br>
-=> <page>栏目是当list内容过多时翻页的，页数取决于备份目录中备份节点的数量 <br>
-  /qf backup auto <time> <locate> <zipped> —— 启动定时备份功能。<br>
-=> <time>栏目是规定间隔多长时间备份一次，单位为游戏刻（GameTick, gt），其余参数与/qb backup make相同（不包含<slot>. 自动备份下的文件/文件夹将强制以时间进行命名，例如2020_3_16_13_35.zip）<br>
-  /qf backup stopauto —— 停止自动备份。<br>
-  /qf backup delete <slot> —— 删除备份文件夹内的某个备份。<br>
-=> <slot>栏目为备份后的文件/文件夹名称 <br>
-  /qf backup diskprotect <bool_value> <value>—— 是否开启硬盘保护功能。 <br>
-=> <bool_value> 只能为布尔值（true/false），意为是否开启该功能，当值位于false时，后面的所有参数将无效 <br>
-=> <value>栏目只能为单位字节（例如5GB、5KB、10MB等），意为当硬盘空间小于此值时触发保护功能 <br>
-=> 硬盘保护意为防止备份项目过多导致磁盘爆满。当磁盘空间小于<value>规定的大小时，自动备份将停止，手动备份会提示“是否删除最早的备份以此来空出该备份所需的磁盘空间”并会让执行指令的终端进行/qf backup confirm确认操作 <br>
-  
-# 2. 请求传送、接受传送与拒绝传送：
- 
-  /qf tpafunc <bool_value> —— 是否开启请求传送功能 <br>
-=> <bool_value> 只能为布尔值（true/false），当值位于false时，以下所有指令全部无效 <br>
-  /tpa <player> —— 向该玩家发送一个传送请求。 <br>
-=> <player>栏目只能为玩家实体。控制台、命令方块发出的该指令无效 <br>
-  /tpaccept —— 接受传送请求。<br>
-  /tpadeny —— 拒绝传送请求。<br>
-  /tpahere <player> —— 请求将对方玩家传送到此 <br>
-  
-# 3. 格式化聊天栏与@<player>：
-  （该功能的详细配置在config文件内可以找到）<br>
-  
-  /qf chatfunc <bool_value> —— 是否开启格式化聊天 <br>
-=> <bool_value> 只能为布尔值（true/false），当值位于false时，客户端会遵循Minecraft的聊天格式而不是QuickFunctions的格式 <br>
-  /qf mute <bool_value> —— 是否开启全局禁言 <br>
-=> <bool_value> 只能为布尔值（true/false），当值位于true时，玩家发送除指令外所有的内容将全部屏蔽（在客户端表现为发送文字后聊天栏无任何反应），但玩家依然可以使用/say、/tell(raw)、/title等指令来说话（如果他有这些指令使用权限的话）<br>
-  <chat>@<player> <chat> —— 在聊天栏内@一位玩家 <br>
-=> <chat>栏目是玩家要发送的上下文（包含空格、无字符。在@<player>结束后必须加一个空格才能接着剩下的语句。否则MOD将无法识别@内容） <br>
-=> <player>栏目只能为玩家实体。<br>
-=> 当MOD成功识别后，被@的玩家会有一个“note_pling”的提示音，并在聊天栏内会看到@部分呈翠绿色的高亮（&a格式）<br>
-  
-# 4. placeholderAPI支持（暂未更新）：
-  （该功能暂且未在beta版本中加入）<br>
-  
-# 5. 快速发送bossbar、actionbar、subtitle等位置的文字：
-  /qf bossbarmsg <msg> <time> <barcolor> —— 发送一个BOSS血条消息 <br>
-=> <msg>栏目是想要发送的文字，支持&转义符、JSON格式（当系统检测到JSON格式中有time规定的值时，<time>栏目将失效）。<br>
-=> <time>栏目为BOSS血条持续的时间，单位为游戏刻（GameTick, gt）<br>
-=> <barcolor>栏目为血条颜色，只能为JSON格式 <br>
-  /qf actionbarmsg <msg> —— 发送一个唱片条消息 <br>
-=> <msg>栏目是想要发送的文字，支持&转义符、JSON格式。<br>
-  /qf subtitlemsg <msg> <br>
-=> <msg>栏目是想要发送的文字，支持&转义符、JSON格式。若不规定渐变时间、持续时间，系统默认会以“10 20 10”的格式放送。<br>
-  
-# 6. 快速寻找史莱姆区块、生物群系：
-  /qf slimefinder <radius> —— 以玩家为中心寻找史莱姆区块 <br>
-=> <radius>栏目意为半径，规定一个圆，圆心为玩家中心。半径为单位格（一个方块长度=1）<br>
-  /qf biomefinder <biome> <radius> —— 以玩家为中心寻找规定的生物群系 <br>
-=> <biome>栏目只能输入生物群系名称，输入其他则无效 <br>
-=> <radius>栏目意为半径，规定一个圆，圆心为玩家中心。半径为单位格（一个方块长度=1）<br>
-=> 若该范围内存在两个或两个以上生物群系，MOD将自动选择一个离玩家最近的生物群系进行输出坐标 <br>
-  
-# 7. 模糊指令：
-  （该部分请参考config文件fuzzycommands部分，在这里不做过多赘述）<br>
 
-# 8. 服务器指标查询：
-  /qf healthreport —— 发送一个服务器健康报告。<br>
-=> 详细内容请参考config中的healthreport部分 <br>
-  
-# 9. 在游戏内控制服务器后台、查询服务端根目录文件（暂未更新）：
-  （该功能暂且未在beta版本中加入）<br>
-  
-  /qf panelmode <player> —— 将某个玩家切换至控制台模式 <br>
-=> <player>栏目只能为玩家实体，若留空将给操作者本身开启控制台模式。<br>
-  /qf exitpanel <player> —— 退出控制台模式 <br>
-=> <player>栏目只能为玩家实体，若留空将给操作者本身退出控制台模式。<br>
-  /qf lookupfile <page> —— 列举服务器根目录所有文件 <br>
-=> <page>栏目是当list内容过多时翻页的，页数取决于根目录文件的数量 <br>
-  /qf file open <locate> —— 打开某个文件 <br>
-=> <locate>为文件名称，打开文件需要带后缀（例如config/quickfunc/conf.json）<br>
-  /qf file backspace <locate> —— 回退至某个路径 <br>
-=> <locate>为文件夹路径，需填写局部路径（从服务端根目录开始），留空代表本目录 <br>
-  /qf file cd <locate> —— 前往某个文件夹 <br>
-=> <locate>为文件夹路径，需填写局部路径（从服务端根目录开始），留空代表本目录 <br>
-  /qf file ls <locate> —— 列举某个路径内的文件/文件夹 <br>
-=> <locate>为文件夹路径，需填写局部路径（从服务端根目录开始），留空代表本目录 <br>
-  /qf file zip <locate> <value> —— 处理一个.zip格式的压缩包 <br>
-=> <locate>为文件路径，需填写局部路径（从服务端根目录开始），留空无效 <br>
-=> <value>遵循Linux加解压缩参数，具体请自己CSDN <br>
-  /qf file tar <locate> <value> —— 处理一个.tar(.gz)格式的压缩包 <br>
-=> 详细内容与上一条指令相同，故此不做过多赘述 <br>
-  /qf file delete <locate> —— 删除一个文件/文件夹 <br>
-=> <locate>为文件夹路径，需填写局部路径（从服务端根目录开始），留空无效 <br>
-=> 是否有回收站需要根据服务端宿主系统决定 <br>
-=> 删除内容属于敏感指令，需要使用/qf file confirm确认操作 <br>
-  /qf file confirm —— 确认执行 <br>
-  
-# 10. LOG日志与监测系统：
-  （日志文件在config/quickfunc/logs内可以找到，命名格式为时间_格式，例如2020_3_16_15_09_all.txt）<br>
+### :tw-1f4a5: QFD的亮点：
+#### 现支持90%的MCDR插件与MCD插件
+QuickFunctions Deluxe 配备了完整的MCDR API（向下兼容至MCD），使得可以不依赖MCDR的情况下运行MCDR插件
 
-  /qf log <bool_value> —— 是否开启日志记录模式 <br>
-=> <bool_value> 只能为布尔值（true/false），当值位于false时，以下所有关于日志的指令均无效 <br>
-  /qf log <mode> —— 规定记录模式 <br>
-=> <mode>栏目有：all, debug, develop, server, player。默认情况下是all <br>
-=> all模式：该模式会记录除debug之外的所有事件。 <br>
-=> debug模式：会记录所有Minecraft、Forge以及Netty的事件，其他事件不记录 <br>
-=> develop模式：相当于debug的升级版。除了记录debug内的东西之外，还会记录聊天、指令、命令方块、datapacks、functions的执行操作，包含此MOD的任务 <br>
-=> server模式：与根目录的logs记录方法相同，遵循Minecraft的日志写法 <br>
-=> player模式：仅记录玩家的聊天、指令，与方块的交互以及登入登出、IP地址信息 <br>
-  
-# 11. 自动重启：
-  /qf autorestart <time> <msgswitch> —— 规定自动重启间隔 <br>
-=> <time>栏目是规定间隔多长时间重启一次，单位为游戏刻（GameTick, gt）<br>
-=> <msgswitch> 只能为布尔值（true/false），意为是否开启重启倒计时警告系统 <br>
-=> 倒计时警告文字与计时器可以在config文件autorestart部分找到 <br>
-  /qf stopautorestart —— 停止自动重启 <br>
-  
-# 12. Python脚本的运行：
-  /qf pyfile run <locate> <br>
-=> <locate>栏目是python文件的位置，请填写局部路径（从服务端根目录开始） <br>
-  
-...更多功能 敬请期待... <br>
-与HGRCarpet搭配更佳 <br>
-目前仅开发1.13.2Forge版本，预计未来会开发1.14+的Fabric版本。 <br>
- 
+#### QFD-API 一种更简单、更直观的函数API
+QuickFunctions Deluxe API 是我们开发的更便于用户实现自己功能的一种新兴API
+我们提供了80%的函数，全部使用Mixin介入，没有一个函数直接干预原版机制，开发者**仅需代入参数即可**
+
+#### Scratch式积木拼接编程
+想通过 QuickFunctions Deluxe API 简单快速实现复杂功能而不会Java编程？
+不用担心，直接使用我们的脚本制作程序，**和Scratch一样的积木拼接式幼儿园级编程**，让你快速实现自己想要的功能
+
+#### 全部可控化开关
+不想使用QFD的某些功能？直接通过游戏内GUI或配置文件修改即可快速开关每一个QFD的功能，让你从容应对原版特性与机制
+
+#### Carpet的支持与快速迁移
+什么？懒得迁移自己已经挂载到MCDR与Carpet上的服务端了？
+**让 QFD-ReplayM 帮你迁移！仅需要简单三部操作即可成功迁移到QFD上却不会造成与之前服务器任何不同的改动**
+
+### :tw-1f4d7: QuickFunctions Deluxe 使用说明书
+#### 目录（请认真阅读说明后方可使用）
+- 序言：QuickFunctions Deluxe 诞生背景
+
+
+- **第一篇-基础操作**：从构建QFD到安装QFD
+- **第二篇-基础操作**：如何将原MCDR+Carpet解决方案迁移至QFD
+- **第三篇-基础操作**：初始化QFD并第一次使用QFD
+- **第四篇-基础操作**：配置文件、指令集与可控参数代入
+
+
+- **第五篇-进阶操作**：简单认识QFD-API与QFD-GUI
+- **第六篇-进阶操作**：QFD-API总览大全
+- **第七篇-进阶操作**：QFD-GUI界面认识与简单操作
+- **第八篇-进阶操作**：实现一个简单的QFD脚本
+
+
+- **第九篇-高阶操作**：使用Mixin修改QFD源码
+- **第十篇-高阶操作**：使用rcon接口直接控制QFD所有功能
+
+#### 温馨提示
+在接触并使用 QuickFunctions Deluxe 之前，务必阅读“基础操作篇”全部内容
+如需了解更多进阶内容，可以选择性阅读余下的篇章
+在“高阶操作篇”里，有部分Java或Python编程术语，仅供有编程经验的人阅读
+
+### :tw-1f52c: 开发组名单
+#### QFD基础源码设计
+- Sam_Chai
+- xinmeng
+- Gold_Squar
+
+#### QFD部分源码来自于
+- Fallen-Breath 的 MCDR
+- kafuuchino-desu 的 MCDaemon
+- gnembon 的 CarpetMod
+- HGR-Community 的 QuickFunctions
+
+### :tw-1f527: 协助我们开发 QuickFunctions Deluxe
+###### 项目负责人（Sam_Chai）QQ：80421117
+###### 我们的 Discord 群聊：
+
+### :tw-1f496: Powered by *You*！
+
+
+
+
+
+
+
