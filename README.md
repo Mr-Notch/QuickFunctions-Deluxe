@@ -1,83 +1,218 @@
-## QuickFunctions Deluxe
-> **什么叫TM的惊喜？一个不臃肿、功能多、扩展性高、不干涉原版性质的扩展型Mod**
+# QuickFunctions Deluxe
 
-适用于：各种生电服、FabricMod服、创造服（镜像服）等
+**更卓越的 Minecraft 服务端扩展 Mod 兼守护程序**
 
-QuickFunctions Deluxe 不再依赖于MCDR，但能够兼容90%的MCDR插件或MCD插件
+**QuickFunctions Deluxe 适用于：**
 
-**这是一个称得上“完美”的原版服扩展解决方案**
-
-非常感谢Fallen的MCDReforged与HGRCommunity的QuickFunctions
-> Fallen-Breath MCDR直达站：[点击跳转](https://github.com/Fallen-Breath/MCDReforged "点击跳转")
-
-> HGR-Community QuickFunctions直达站：[点击跳转](https://gitee.com/Mr_Notch/QuickFunctions "点击跳转")
-
-
-### :tw-1f4a5: QFD的亮点：
-#### 现支持90%的MCDR插件与MCD插件
-QuickFunctions Deluxe 配备了完整的MCDR API（向下兼容至MCD），使得可以不依赖MCDR的情况下运行MCDR插件
-
-#### QFD-API 一种更简单、更直观的函数API
-QuickFunctions Deluxe API 是我们开发的更便于用户实现自己功能的一种新兴API
-我们提供了80%的函数，全部使用Mixin介入，没有一个函数直接干预原版机制，开发者**仅需代入参数即可**
-
-#### Scratch式积木拼接编程
-想通过 QuickFunctions Deluxe API 简单快速实现复杂功能而不会Java编程？
-不用担心，直接使用我们的脚本制作程序，**和Scratch一样的积木拼接式幼儿园级编程**，让你快速实现自己想要的功能
-
-#### 全部可控化开关
-不想使用QFD的某些功能？直接通过游戏内GUI或配置文件修改即可快速开关每一个QFD的功能，让你从容应对原版特性与机制
-
-#### Carpet的支持与快速迁移
-什么？懒得迁移自己已经挂载到MCDR与Carpet上的服务端了？
-**让 QFD-ReplayM 帮你迁移！仅需要简单三部操作即可成功迁移到QFD上却不会造成与之前服务器任何不同的改动**
-
-### :tw-1f4d7: QuickFunctions Deluxe 使用说明书
-#### 目录（请认真阅读说明后方可使用）
-- 序言：QuickFunctions Deluxe 诞生背景
-
-
-- **第一篇-基础操作**：从构建QFD到安装QFD
-- **第二篇-基础操作**：如何将原MCDR+Carpet解决方案迁移至QFD
-- **第三篇-基础操作**：初始化QFD并第一次使用QFD
-- **第四篇-基础操作**：配置文件、指令集与可控参数代入
-
-
-- **第五篇-进阶操作**：简单认识QFD-API与QFD-GUI
-- **第六篇-进阶操作**：QFD-API总览大全
-- **第七篇-进阶操作**：QFD-GUI界面认识与简单操作
-- **第八篇-进阶操作**：实现一个简单的QFD脚本
-
-
-- **第九篇-高阶操作**：使用Mixin修改QFD源码
-- **第十篇-高阶操作**：使用rcon接口直接控制QFD所有功能
-
-#### 温馨提示
-在接触并使用 QuickFunctions Deluxe 之前，务必阅读“基础操作篇”全部内容
-如需了解更多进阶内容，可以选择性阅读余下的篇章
-在“高阶操作篇”里，有部分Java或Python编程术语，仅供有编程经验的人阅读
-
-### :tw-1f52c: 开发组名单
-#### QFD基础源码设计
-- Sam_Chai
-- xinmeng
-- Gold_Squar
-
-#### QFD部分源码来自于
-- Fallen-Breath 的 MCDR
-- kafuuchino-desu 的 MCDaemon
-- gnembon 的 CarpetMod
-- HGR-Community 的 QuickFunctions
-
-### :tw-1f527: 协助我们开发 QuickFunctions Deluxe
-###### 项目负责人（Sam_Chai）QQ：80421117
-###### 我们的 Discord 群聊：
-
-### :tw-1f496: Powered by *You*！
+- 各种基于 Fabric 的生电原版服
+- 高版本 FabricMod 模组服
 
 
 
+**感谢 Fallen-Breath 的 MCDReforged 与 HGR-Community 的 QuickFunctions**
+
+- Fallen-Breath MCDR 直达站：[点击跳转](https://github.com/Fallen-Breath/MCDReforged "点击跳转")
+- HGR-Community QF 直达站：[点击跳转](https://gitee.com/Mr_Notch/QuickFunctions "点击跳转")
 
 
 
+## 说明索引目录
+
+在使用 QuickFunctions Deluxe 之前，务必阅读完毕以下内容
+
+[TOC]
+
+## QuickFunctions Deluxe 的优点
+
+> 为什么要选择 QuickFunctions Deluxe？（以下简称QFD）
+>
+> QFD 与 MCDR 的区别是什么？
+>
+> 使用 QFD 的好处是什么？
+
+- **原版特征：**QuickFunctions Deluxe 基于 JavaSDK 编写，使用 FabricAPI 作为主类，并使用 Mixin 直接注入原版代码，没有任何干预原版进程，保证原汁原味的原版特性
+
+- **MCDR 插件兼容性：**QuickFunctions Deluxe 兼容 80% 的 MCD 或 MCDR 插件，并且支持无缝将 MCDR 环境一键转换至 QFDP（QuickFunctions Deluxe PythonAPI） 环境
+- **Scratch 编写：**QuickFunctions Deluxe 支持使用类似 Scratch 一样的积木式编程 UI 进行编写 QFD 脚本，让开发变得简单易懂，仅需简单鼠标拖拽即可实现大部分功能
+- **全部可控式开关：**QuickFunctions Deluxe 将所有功能全部使用布尔值开关在 Config 文件中，使用者可以轻易地进行开关任何一个功能
+- **GPL-3.0 开源协议：**QuickFunctions Deluxe 所有源代码全部在 GitHub 上开源，开发者可以直接修改源代码修改成适合自己服务器的 QFD 版本，无需向 QFD 开发组申请
+
+
+
+## 构建方法、安装说明以及使用简要
+
+> 如何构建 QFD？如何使用 QFD 的工具包？在安装完成后第一次使用需要注意什么？
+
+
+
+### 如何在 GitHub 上构建 QuickFunctions Deluxe：
+
+- Windows：使用 Git 构建工具直接从以下链接 Clone
+
+- Linux：直接使用 git 指令从以下链接 Clone
+
+  > https://github.com/Mr-Notch/QuickFunctions-Deluxe.git
+
+  
+
+### 如何给自己的服务端安装 QuickFunctions Deluxe：
+
+在安装之前，需要注意以下事项：
+
+1. 确保自己的服务端 API 为 FabricAPI
+2. 确保自己的 FabricAPI 游戏版本在 1.15.2 及其以上
+3. 确保自己已经安装 Fabric-Carpet
+
+确认以上三点以后，您就应该可以进行安装 QuickFunctions Deluxe 了
+
+**安装方法：**
+
+- 直接将 fabric-qfd-version-snap.jar 文件粘贴到服务端目录下的 ./mods 文件夹内
+
+- 启动一次服务端，此时应该会在 ./config 文件夹内看到 ./qfd 文件夹，并且该服务端不会成功启动
+
+- 前往 ./config/qfd 文件夹，此时应该会看到类似以下的目录结构：
+
+  ```
+  ,/config/qfd
+  ├─ functions/ -> 该目录下存放 QFD 的脚本文件
+  │  ├─ xxx1-version-func.jar
+  │  ├─ xxx2-version-func.jar
+  │  └─ ...
+  │
+  ├─ mcdps/ -> 该目录下存放处于兼容模式运行的 MCDR 插件
+  │  ├─ xxx1.py
+  │  ├─ xxx2.py
+  │  └─ ...
+  │
+  ├─ config/ -> 该目录下存放 QFD 的配置文件
+  │  ├─ main.json
+  │  ├─ switch.json
+  │  ├─ functions.json
+  │  ├─ methods.json
+  │  ├─ events.json
+  │  └─ messages/ -> 这是 QFD 的语言文件
+  │     ├─ zh_cn.json
+  │     ├─ en_us.json
+  │     └─ ...
+  │
+  ├─ mixins/ -> 该目录下存放 QFD 的注入表
+  │  ├─ lib-qfdfunc-snap.jar
+  │  ├─ xxx-name-version.jar
+  │  └─ ...
+  │
+  ├─ tools/ -> 该目录下存放 QFD 的开发者工具
+  │  ├─ scratch-editor.jar
+  │  ├─ version-changer.jar
+  │  └─ ...
+  │
+  └─ readme.md
+  ```
+
+
+
+- 若确认 ./qfd 文件夹内的文件格式类似如上，那么可以进行下一步操作；
+
+  若 ./qfd 文件夹为空或未找到，请核对上述 1-2 步骤（检查版本并确认服务端是否正常工作）
+
+- 前往 ./config.json 文件夹，找到以下行，并根据宿主机物理环境进行填写
+
+  > 原文件对照行
+
+  ```
+  # 这里为宿主机运行系统环境的填写，以便于 QFD 进行合理识别
+  # Windows 或 DOS 内核的：0
+  # Linux、macOS 等 UNIX 内核的：1
+  
+  os {
+  	files {
+  		backup=0
+  		review=0
+  		target=0
+  		command=0
+  	}
+  	time {
+  		format=0
+  	}
+  }
+  ```
+
+  
+
+- 确认无误后使用快捷键 Ctrl+S 保存，并再次尝试启动 Minecraft 服务端
+
+- 此时，在后台输出应该有类似代码片段：
+
+  ```
+  [16:51:28] [Server thread/INFO]: QuickFunctions Deluxe Loader
+  [16:51:28] [Server thread/INFO]: *Successfully injected*
+  [16:51:28] [Server thread/INFO]: Server Version: 1.16.2
+  [16:51:28] [Server thread/INFO]: QFD Version: SNAP
+  [16:51:28] [Server thread/INFO]: 
+  [16:51:28] [Server thread/INFO]: QuickFunctions Deluxe Hooker
+  [16:51:28] [Server thread/INFO]: Carpet Hooked!
+  [16:51:28] [Server thread/INFO]: FabricAPI Hooked!
+  [16:51:28] [Server thread/INFO]: Minecraft Mixin Hooked!
+  [16:51:28] [Server thread/INFO]: 
+  [16:51:28] [Server thread/INFO]: Now continue to start server...
+  [16:51:28] [Server thread/INFO]: 
+  ```
+
+  
+
+- 若有错误，一般为上一步步骤填写错误，请认真核对重新填写并重启服务端
+
+- 确认无误后，使用 Minecraft 客户端（无需在客户端加入 QFD）进入服务端，并以 OP 权限运行指令：
+
+  > /shoo
+
+- 此时，在玩家窗口应该会弹出 完成挑战 “成功加载 QuickFunctions Deluxe”，并且会在聊天窗口反馈一些内容
+
+- 这时，QuickFunctions Deluxe 已经正式初始化完毕
+
+
+
+**我的服务端已经有 MCDR 了，我该怎么将兼容的 MCDR 插件加载到 QFD 里：**
+
+- 前往服务端根目录 ./config/qfd/tools 文件夹，并寻找到 mcdr-hooker.jar 文件
+
+- 双击该文件，Windows 或 macOS 会弹出 UI，而 Linux 等命令行则会弹出命令行光标界面
+
+  **Windows 操作步骤：**
+
+  - 将 MCDR 所在的目录填入第一个方框
+  - 将 MCDR 与 Minecraft 版本填入第二个与第三个方框
+  - 点击 “Hook Now” 按钮并等待 Hook Successfully 字样的出现
+
+  **Linux 命令行操作步骤：**
+
+  - 使用上下左右键移动光标高亮，同样地，将三个参数填入三个方框中
+  - 使用光标瞄准按钮 “Hook Now” 并等待 Hook Successfully 字样的出现
+  - 使用光标瞄准按钮 “Exit” 即可退出命令行界面
+
+
+
+### 常用指令与函数方程式参数代入方法
+
+使用 QFD，仅需要记住以下简单指令即可实现大部分操作
+
+如需查询详细指令，请查看 commands.md 文件
+
+- 获取帮助：
+
+  > /qfd help
+
+  此时会反馈一个含有详细指令操作的消息
+
+  常用指令如下所示：
+
+  - /qfd backup - 备份指令操作
+  - /qfd func - 函数指令操作
+  - /qfd player - 玩家指令操作
+  - /qfd hooker - 与其他 Mod 的挂钩
+  - /qfd server - 服务端指令操作
+  - /qfd client - 客户端指令操作
+  - /qfd mixins - 注入表
+  - /qfd mcdrp - MCDR 插件操作（支持热重启）
+  - /qfd reload - 重载指令操作
 
